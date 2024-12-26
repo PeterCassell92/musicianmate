@@ -4,6 +4,7 @@ import ControlBar from '../controlBar/ControlBar'
 import PlayBtn from '../controlBar/PlayBtn'
 import PlaylistBtn from '../controlBar/PlaylistBtn'
 import LikeBtn from '../controlBar/LikeBtn'
+import LyricsBtn from '../controlBar/LyricsBtn'
 import { isOwner } from '../../lib/auth'
 import { editSong } from '../../lib/api'
 
@@ -92,6 +93,7 @@ function SongListItem(props) {
                         type="Song"
                         likesCount={props.likesCount}
                       />
+                      <LyricsBtn/>
                     </ControlBar>
                   </div>
                 </div>

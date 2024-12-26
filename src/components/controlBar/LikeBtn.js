@@ -34,7 +34,7 @@ function LikeBtn({ id, type, likesCount }) {
   }
   return (
     <>
-      <div className="field has-addons">
+      <div className= "field has-addons">
         <div className="control">
           {isLiked ? (
             <button

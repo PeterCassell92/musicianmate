@@ -1,22 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-const LyricsButton = () => {
-  const handleClick = async (e) => {
-    e.preventDefault()
-    try {
-      console.log('Go To Lyrics - Stub')
-      //TODO: Go to most recently versioned / officialised lyrics
-    } catch (err) {
-      console.log(err.res)   
-    }
-  }
+const LyricsButton = ({ songId, lyricSheetId }) => {
+  //TODO: allow for navigation to other lyric versions.
   return (
-    <a
+    <Link
+      to={`/songs/${songId}/lyrics/${lyricSheetId}`}
       className = "button is-primary"
-      onClick ={handleClick}
     >
         Lyrics Button Placeholder
-    </a>
+    </Link>
   )
 }
 

@@ -28,6 +28,10 @@ export function getSingleSong(songId) {
   return axios.get(`${baseUrl}/songs/${songId}`)
 }
 
+export function getSongLyricSheet(songId, lyricSheetId){
+  return axios.get(`${baseUrl}/songs/${songId}/lyrics/${lyricSheetId}`)
+}
+
 export function createSong(formdata) {
   return axios.post(`${baseUrl}/songs`, formdata, headers())
 }

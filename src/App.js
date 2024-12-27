@@ -17,9 +17,9 @@ import NewAlbumForm from './components/forms/NewAlbumForm'
 import NewPlaylistForm from './components/forms/NewPlaylistForm'
 import SecureRoute from './components/common/SecureRoute'
 import UserDashboard from './components/dashboard/UserDashboard'
+import LyricSheet from './components/song/LyricSheet'
 
 export const AudioQueueContext = createContext(null)
-
 
 function App() {
   //* Player que list 
@@ -52,7 +52,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
-            <Route path="/songs">
+            <Route exact path="/songs">
               <SongsIndex updateAudioQueue={updateAudioQueue} />
             </Route>
             <SecureRoute exact path="/albums/new">
@@ -65,6 +65,8 @@ function App() {
             <SecureRoute exact path="/playlist/new">
               <NewPlaylistForm />
             </SecureRoute>
+            <Route path="/songs/:songId/lyrics/:lyricSheetId" component={LyricSheet} />
+            {/* TODO: secure routes based on users song/artist based access */}
             <Route path="/playlists/:playlistId" component={ShowPlaylist} />
             <Route path="/playlists" component={PlaylistIndex} />
             <SecureRoute path="/upload-song" component={SongForm} />

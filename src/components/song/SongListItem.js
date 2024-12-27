@@ -93,7 +93,7 @@ function SongListItem(props) {
                         type="Song"
                         likesCount={props.likesCount}
                       />
-                      <LyricsBtn/>
+                      <LyricsBtn songId={props._id} lyricSheetId='44' />
                     </ControlBar>
                   </div>
                 </div>

@@ -8,7 +8,7 @@ const LyricsButton = ({ songId, lyricSheetId }) => {
       to={`/songs/${songId}/lyrics/${lyricSheetId}`}
       className = "button is-primary"
     >
-        Lyrics Button Placeholder
+        Lyrics - {lyricSheetId}
     </Link>
   )
 }

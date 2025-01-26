@@ -21,12 +21,16 @@ function LyricSheet() {
     getData()
   }, [history, songId, lyricSheetId])
   return (
-    <div>
+    <div className='container'>
       <h1>lyricSheet</h1>
 
-      <div className='lyricsBox'>
+      <div className='section lyricsBox'>
         { lyricsText }
+        {/* TODO: Render lyrics with annotation options */}
       </div>
+      <button className="button" onClick={handleClear}>
+        Edit Lyrics
+      </button>
     </div>
     
   )

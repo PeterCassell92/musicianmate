@@ -1,8 +1,8 @@
 import React from 'react'
-import { AudioQueueContext } from '../../App.js'
+import { useAudioQueue } from '../../AudioQueueContext'
 
 function PlayBtn(props) {
-  const { updateAudioQueue } = React.useContext(AudioQueueContext)
+  const { updateAudioQueue } = useAudioQueue()
   const handleClick = () => {
     const song = {
       name: props.name,

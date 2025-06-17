@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import SongComment from '../comment/SongComment'
 import ControlBar from '../controlBar/ControlBar'
 import PlayBtn from '../controlBar/PlayBtn'
@@ -7,8 +8,10 @@ import LikeBtn from '../controlBar/LikeBtn'
 import LyricsBtn from '../controlBar/LyricsBtn'
 import { isOwner } from '../../lib/auth'
 import { editSong } from '../../lib/api'
+import Song from 'types/song'
 
-function SongListItem(props) {
+
+function SongListItem(props : Song)  {
   const [commentHidden, setCommentHidden] = React.useState(false)
 
   const handleCommentExpand = () => {
@@ -24,7 +27,11 @@ function SongListItem(props) {
       await editSong(props._id, { ...props, isDeleted: true })
       setOpenModal(false)
     } catch (e) {
-      console.log(e?.response.data)
+      if (axios.isAxiosError(e)) {
+        console.log(e.response?.data)
+      } else {
+        console.error('Unknown error', e)
+      }
     }
   }
   const handleConfirm = () => {
@@ -68,7 +75,7 @@ function SongListItem(props) {
                 </p>
                 <p>
                   <small className="subtitle has-text-grey">
-                    Album: {props.album.name}
+                    Album: {props.album?.name}
                   </small>
                 </p>
               </div>
@@ -101,7 +108,7 @@ function SongListItem(props) {
 
               {commentHidden && (
                 <div className="box">
-                  <SongComment commentsPassed={props.comments} id={props._id} />
+                  <SongComment id={props._id} />
                 </div>
               )}
             </div>

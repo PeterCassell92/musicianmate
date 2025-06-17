@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { AudioQueueContext } from '../../App.js'
+import { useAudioQueue } from '../../AudioQueueContext'
 import { getAllSongsInPlaylist } from '../../lib/api.js'
 
 function PlaylistCard({ _id, name, cover }) {
-  const { updateAudioQueue } = React.useContext(AudioQueueContext)
+  const { updateAudioQueue } = useAudioQueue()
   const [songs, setSongs] = React.useState(null)
   const addPlaylistToQueue = async () => {
     const songsToAddToQueue = songs.map(song => {

@@ -1,7 +1,11 @@
-export type Comment {
+import User from 'types/users'
+
+export type Comment = {
+    _id: string;
     text: string;
-    user: string; // or a full user object if populated
-    createdAt: string;
-    updatedAt: string;
-    // Add other fields from commentSchema if needed
+    user: User; // or a full user object if populated
+    createdAt: Date;
+    updatedAt: Date;
   }
+
+export default Comment

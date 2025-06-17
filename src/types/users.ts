@@ -11,3 +11,5 @@ export type User = {
   comments: Comment[];        // Reuse comment structure
   addedSongs: string[];       // Array of Song IDs
 }
+
+export default User

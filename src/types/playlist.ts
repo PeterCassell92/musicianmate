@@ -1,4 +1,4 @@
-export default type Playlist = {
+export type Playlist = {
     _id: string;
     name: string;
     cover?: string;
@@ -9,3 +9,8 @@ export default type Playlist = {
     public: boolean;
     likesCount: number;
   };
+
+export default Playlist
+
+
+

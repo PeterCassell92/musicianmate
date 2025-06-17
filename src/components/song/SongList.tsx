@@ -1,9 +1,14 @@
 import SongListItem from './SongListItem'
 import Loader from 'react-loader-spinner'
+import Song from '../../types/song'
 
-function SongList({ songList }) {
-  const filteredSongList = songList?.filter(song => !song.isDeleted)
-  return (
+type SongListProps = {
+  songList: Array<Song>| undefined
+}
+
+function SongList({ songList } : SongListProps) {
+  const filteredSongList : Array<Song> | undefined = songList?.filter(song => !song?.isDeleted)
+  return ( 
     <div className="container">
       <div className="section">
         <div className="columns is-multiline">

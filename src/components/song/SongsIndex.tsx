@@ -2,10 +2,12 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { getAllSongs } from '../../lib/api'
 import SongList from './SongList'
+import Song from 'types/song'
+
 
 function SongsIndex() {
   const history = useHistory()
-  const [songs, setAllSongs] = React.useState(null)
+  const [songs, setAllSongs] = React.useState<Array<Song> | undefined >()
   const [searchTerm, setSearchTerm] = React.useState('')
 
   React.useEffect(() => {
@@ -22,7 +24,7 @@ function SongsIndex() {
   }, [setAllSongs, history])
 
   
-  const handleInput = (e) => {
+  const handleInput = (e : React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value)
   }
 

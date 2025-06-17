@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { getAllSongsInAlbum } from '../../lib/api'
-import { AudioQueueContext } from '../../App.js'
+import { AudioQueueContext } from '../../AudioQueueContext'
 
 
 function AlbumCard({ _id, name, cover, artists, leadArtist }) {
